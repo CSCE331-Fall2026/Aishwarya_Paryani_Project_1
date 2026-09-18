@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aishwarya's Activities</title>
+    <link rel="stylesheet" href="design_2.css" id="css-link">
 </head>
 <body>
 <header>
@@ -20,13 +21,15 @@
         <h1>ACTIVITIES</h1>
     </section>
 
-    <section>
-        <p>✦✦✦ Hi! I’m a Junior Computer Science Major at 
-            Texas A&M University! ✦✦✦</p>
+    <section class="black-banner">
+        <p class="star">✦✦✦</p>
+        <p>Hi! I’m a Junior Computer Science Major at 
+            Texas A&M University!</p>
+        <p class="star">✦✦✦</p>
     </section>
 
     <section>
-        <a href="https://www.thealinemag.com/"><img src="TODO" alt="A-Line Magazine Banner"></a>
+        <a href="https://www.thealinemag.com/"><img src="img/aline-banner.png" alt="A-Line Magazine Banner"></a>
         <h2>A-Line Magazine - Editor</h2>
         <p>A-Line Magazine is Texas A&M University’s first student-led 
             editorial publication. We release online articles on a week-to-week 
@@ -48,15 +51,15 @@
         <p>You can take a look at our past print issues on our website! You can find 
             my writing in our two most recent issues!</p>
         <div>
-            <a href="https://www.thealinemag.com/print-issues"><img src="TODO" alt="MUSE magazine"></a>
-            <a href="https://www.thealinemag.com/print-issues"><img src="TODO" alt="Fool!sh magazine"></a>
+            <a href="https://www.thealinemag.com/print-issues"><img src="img/muse.png" alt="MUSE magazine"></a>
+            <a href="https://www.thealinemag.com/print-issues"><img src="img/foolish.png" alt="Fool!sh magazine"></a>
         </div>
     </section>
 
     <section>
         <h2>Aggie Women in Computer Science - Marketing Director</h2>
         <div>
-            <a href="https://www.instagram.com/tamuawics/"><img src="TODO" alt="AWICS logo"></a>
+            <a href="https://www.instagram.com/tamuawics/"><img src="img/awics.png" alt="AWICS logo"></a>
             <div>
                 <p>Aggie Women in Computer Science (AWICS) is a Texas A&M University organization
                     that aims to bring together and empower a community of women in STEM. 
@@ -73,13 +76,30 @@
             merchandise, typically clothing, featuring the Department of Computer Science’s official logo.</p>
     </section>
 
+
 <footer>
     <nav>
-        <a href="https://www.instagram.com/aishwarya_pa.ni/">Instagram</a>
-        <a href="https://github.com/RiverWhite00189">GitHub</a>
-        <a href="https://www.linkedin.com/in/aishwarya-paryani/">LinkedIn</a>
+        <a href="https://www.instagram.com/aishwarya_pa.ni/"><img src="img/insta.png" alt="instagram"></a>
+        <a href="https://github.com/RiverWhite00189"><img src="img/github.png" alt="github"></a>
+        <a href="https://www.linkedin.com/in/aishwarya-paryani/"><img src="img/linkedin.png" alt="LinkedIn"></a>
     </nav>
-        <p>Want a New look? Click Here!</p>
+        <button id="switch-btn">Want a New look? Click Here!</button>
 </footer>
+
+<script>
+    const cssLink = document.getElementById('css-link');
+    const switchBtn = document.getElementById('switch-btn');
+    let usingAlt = false;
+
+    switchBtn.addEventListener('click', function() {
+        if (usingAlt) {
+            cssLink.setAttribute('href', 'design_2.css');
+        } else {
+            cssLink.setAttribute('href', 'design_1.css');
+        }
+        usingAlt = !usingAlt;
+    });
+</script>
+
 </body>
 </html>

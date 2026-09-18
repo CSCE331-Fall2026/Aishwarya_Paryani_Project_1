@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aishwarya's Portfolio</title>
+    <link rel="stylesheet" href="design_2.css" id="css-link">
 </head>
 <body>
 <header>
@@ -20,9 +21,11 @@
         <h1>PORTFOLIO</h1>
     </section>
 
-    <section>
-        <p>✦✦✦ Hi! I'm a Junior Computer Science Major at 
-            Texas A&M University! ✦✦✦</p>
+    <section class="black-banner">
+        <p class="star">✦✦✦</p>
+        <p>Hi! I’m a Junior Computer Science Major at 
+            Texas A&M University!</p>
+        <p class="star">✦✦✦</p>
     </section>
 
 <section>
@@ -97,11 +100,28 @@
 
 <footer>
     <nav>
-        <a href="https://www.instagram.com/aishwarya_pa.ni/">Instagram</a>
-        <a href="https://github.com/RiverWhite00189">GitHub</a>
-        <a href="https://www.linkedin.com/in/aishwarya-paryani/">LinkedIn</a>
+        <a href="https://www.instagram.com/aishwarya_pa.ni/"><img src="img/insta.png" alt="instagram"></a>
+        <a href="https://github.com/RiverWhite00189"><img src="img/github.png" alt="github"></a>
+        <a href="https://www.linkedin.com/in/aishwarya-paryani/"><img src="img/linkedin.png" alt="LinkedIn"></a>
     </nav>
-        <p>Want a New look? Click Here!</p>
+        <button id="switch-btn">Want a New look? Click Here!</button>
 </footer>
+
+
+<script>
+    const cssLink = document.getElementById('css-link');
+    const switchBtn = document.getElementById('switch-btn');
+    let usingAlt = false;
+
+    switchBtn.addEventListener('click', function() {
+        if (usingAlt) {
+            cssLink.setAttribute('href', 'design_2.css');
+        } else {
+            cssLink.setAttribute('href', 'design_1.css');
+        }
+        usingAlt = !usingAlt;
+    });
+</script>
+
 </body>
 </html>
