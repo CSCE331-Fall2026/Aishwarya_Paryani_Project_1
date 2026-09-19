@@ -3,29 +3,1578 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Aishwarya's AI Page</title>
+
+    <style>
+        /* =========================================================
+           ENTIRE PAGE STYLING
+           Textile-inspired Neo-Brutalist / Maximalist
+           ========================================================= */
+
+        :root {
+            --orange: #e85b25;
+            --dark-orange: #b83b18;
+            --cream: #f3e3c4;
+            --yellow: #e7aa32;
+            --red: #9f301d;
+            --black: #171717;
+            --off-black: #24211d;
+            --white: #fff4dc;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--orange);
+            color: var(--black);
+            font-family: Georgia, "Times New Roman", serif;
+        }
+
+        /* =========================================================
+           TEXTURE
+           ========================================================= */
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 999;
+            opacity: .13;
+
+            background-image:
+                repeating-linear-gradient(
+                    0deg,
+                    transparent 0px,
+                    transparent 3px,
+                    rgba(0, 0, 0, .25) 4px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    transparent 0px,
+                    transparent 4px,
+                    rgba(255, 255, 255, .18) 5px
+                );
+        }
+
+
+        /* =========================================================
+           HEADER
+           ========================================================= */
+
+        header {
+            min-height: 75px;
+            padding: 0 5vw;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background: var(--cream);
+            border-bottom: 5px solid var(--black);
+
+            position: relative;
+            z-index: 10;
+        }
+
+        header > a {
+            color: var(--black);
+            text-decoration: none;
+
+            font-family: "Courier New", monospace;
+            font-size: 1.35rem;
+            font-weight: 900;
+            letter-spacing: -.05em;
+            text-transform: uppercase;
+
+            transition: transform .15s ease;
+        }
+
+        header > a::before {
+            content: "✦ ";
+            color: var(--orange);
+        }
+
+        header > a:hover {
+            transform: rotate(-3deg) scale(1.05);
+        }
+
+        header nav {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        header nav a {
+            color: var(--black);
+            text-decoration: none;
+
+            padding: 12px 18px;
+
+            font-family: "Courier New", monospace;
+            font-size: .85rem;
+            font-weight: bold;
+            text-transform: uppercase;
+
+            border: 3px solid transparent;
+        }
+
+        header nav a:hover {
+            border-color: var(--black);
+            background: var(--orange);
+        }
+
+        header nav a:last-child {
+            background: var(--black);
+            color: var(--cream);
+            border-radius: 50%;
+            padding: 12px 22px;
+        }
+
+
+        /* =========================================================
+           HERO
+           ========================================================= */
+
+        .ai-hero {
+            position: relative;
+            overflow: hidden;
+
+            padding: 75px 7vw 90px;
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    transparent 0 15%,
+                    rgba(0,0,0,.07) 15% 16%,
+                    transparent 16%
+                ),
+                var(--orange);
+
+            border-bottom: 5px solid var(--black);
+        }
+
+        .ai-hero::before {
+            content: "✦";
+            position: absolute;
+            left: 4%;
+            top: 25px;
+
+            font-size: 100px;
+            transform: rotate(-18deg);
+        }
+
+        .ai-hero::after {
+            content: "✷";
+            position: absolute;
+            right: 4%;
+            bottom: 15px;
+
+            color: var(--yellow);
+            font-size: 120px;
+            transform: rotate(12deg);
+        }
+
+        .ai-kicker {
+            display: inline-block;
+
+            padding: 9px 18px;
+
+            background: var(--black);
+            color: var(--cream);
+
+            font-family: "Courier New", monospace;
+            font-size: .8rem;
+            font-weight: bold;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+
+            transform: rotate(-2deg);
+
+            margin-bottom: 25px;
+        }
+
+        .ai-hero h1 {
+            max-width: 1100px;
+            margin: 0 auto;
+
+            font-size: clamp(3.4rem, 8vw, 8rem);
+            line-height: .8;
+            letter-spacing: -.07em;
+            text-transform: uppercase;
+            font-weight: 900;
+
+            text-shadow: 6px 6px 0 var(--cream);
+        }
+
+        .ai-hero h1 span {
+            display: block;
+
+            color: var(--cream);
+
+            text-shadow:
+                6px 6px 0 var(--black);
+        }
+
+        .ai-hero-description {
+            max-width: 700px;
+            margin: 40px auto 0;
+
+            font-family: "Courier New", monospace;
+            font-size: 1rem;
+            font-weight: bold;
+            line-height: 1.6;
+        }
+
+
+        /* =========================================================
+           PROGRESS
+           ========================================================= */
+
+        .quiz-progress {
+            padding: 20px 7vw;
+
+            background: var(--cream);
+            border-bottom: 5px solid var(--black);
+        }
+
+        .progress-top {
+            display: flex;
+            justify-content: space-between;
+
+            margin-bottom: 10px;
+
+            font-family: "Courier New", monospace;
+            font-size: .8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .progress-bar {
+            height: 20px;
+
+            padding: 3px;
+
+            border: 3px solid var(--black);
+            background: transparent;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 12.5%;
+
+            background: var(--orange);
+
+            transition: width .35s ease;
+        }
+
+
+        /* =========================================================
+           QUIZ AREA
+           ========================================================= */
+
+        .quiz-wrapper {
+            position: relative;
+            overflow: hidden;
+
+            padding: 75px 7vw;
+
+            background:
+                radial-gradient(
+                    circle at 10% 80%,
+                    var(--red) 0 120px,
+                    transparent 121px
+                ),
+                var(--yellow);
+        }
+
+        .quiz-wrapper::before {
+            content: "";
+            position: absolute;
+            width: 220px;
+            height: 220px;
+
+            left: -70px;
+            top: 30px;
+
+            background:
+                repeating-linear-gradient(
+                    45deg,
+                    var(--black) 0px,
+                    var(--black) 4px,
+                    transparent 4px,
+                    transparent 12px
+                );
+
+            transform: rotate(12deg);
+            opacity: .8;
+        }
+
+        .quiz-wrapper::after {
+            content: "✦";
+            position: absolute;
+
+            right: 5%;
+            top: 40px;
+
+            font-size: 130px;
+            color: var(--orange);
+
+            transform: rotate(15deg);
+        }
+
+        .scribble {
+            position: absolute;
+
+            max-width: 160px;
+
+            font-family: "Comic Sans MS", cursive;
+            font-size: 1.1rem;
+            font-weight: bold;
+            line-height: 1.2;
+        }
+
+        .scribble.one {
+            left: 2%;
+            top: 150px;
+            transform: rotate(-8deg);
+        }
+
+        .scribble.two {
+            right: 2%;
+            bottom: 100px;
+            transform: rotate(7deg);
+        }
+
+
+        /* =========================================================
+           QUIZ CARD
+           ========================================================= */
+
+        .quiz-card {
+            position: relative;
+            z-index: 2;
+
+            max-width: 950px;
+            margin: auto;
+
+            padding: clamp(30px, 6vw, 70px);
+
+            background: var(--cream);
+            border: 5px solid var(--black);
+
+            box-shadow: 15px 15px 0 var(--black);
+        }
+
+        .question-number {
+            margin-bottom: 20px;
+
+            font-family: "Courier New", monospace;
+            font-size: .85rem;
+            font-weight: bold;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+        }
+
+        .quiz-card h2 {
+            margin: 0 0 35px;
+
+            font-size: clamp(2rem, 4vw, 4rem);
+            line-height: 1;
+            letter-spacing: -.04em;
+        }
+
+        .answers {
+            display: grid;
+            gap: 15px;
+        }
+
+        .answer {
+            width: 100%;
+
+            display: flex;
+            align-items: center;
+            gap: 18px;
+
+            padding: 18px 20px;
+
+            background: transparent;
+            color: var(--black);
+
+            border: 3px solid var(--black);
+
+            text-align: left;
+
+            font-family: "Courier New", monospace;
+            font-size: .95rem;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition:
+                transform .15s ease,
+                background .15s ease,
+                color .15s ease,
+                box-shadow .15s ease;
+        }
+
+        .answer:hover {
+            background: var(--orange);
+            color: var(--cream);
+
+            transform: translate(-5px, -5px);
+
+            box-shadow: 7px 7px 0 var(--black);
+        }
+
+        .answer.selected {
+            background: var(--black);
+            color: var(--cream);
+
+            transform: translate(-5px, -5px);
+
+            box-shadow: 7px 7px 0 var(--orange);
+        }
+
+        .answer-letter {
+            flex: 0 0 40px;
+
+            width: 40px;
+            height: 40px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: var(--black);
+            color: var(--cream);
+
+            font-weight: bold;
+        }
+
+        .selected .answer-letter {
+            background: var(--orange);
+            color: var(--black);
+        }
+
+
+        /* =========================================================
+           QUIZ BUTTONS
+           ========================================================= */
+
+        .quiz-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-top: 35px;
+            gap: 20px;
+        }
+
+        .quiz-button {
+            padding: 14px 25px;
+
+            background: var(--orange);
+            color: var(--black);
+
+            border: 4px solid var(--black);
+
+            font-family: "Courier New", monospace;
+            font-weight: bold;
+            text-transform: uppercase;
+
+            cursor: pointer;
+
+            box-shadow: 6px 6px 0 var(--black);
+
+            transition: all .15s ease;
+        }
+
+        .quiz-button:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 3px 3px 0 var(--black);
+        }
+
+        .quiz-button:disabled {
+            opacity: .35;
+            cursor: not-allowed;
+        }
+
+        .quiz-button.back {
+            background: var(--cream);
+        }
+
+
+        /* =========================================================
+           RESULTS
+           ========================================================= */
+
+        .results {
+            display: none;
+
+            max-width: 1100px;
+            margin: 0 auto;
+
+            padding: 75px 7vw;
+        }
+
+        .results.visible {
+            display: block;
+        }
+
+        .results-header {
+            padding: 45px;
+
+            background: var(--black);
+            color: var(--cream);
+
+            border: 5px solid var(--black);
+        }
+
+        .results-header p:first-child {
+            font-family: "Courier New", monospace;
+            font-size: .8rem;
+            font-weight: bold;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
+        .results-header h2 {
+            margin: 15px 0;
+
+            color: var(--orange);
+
+            font-size: clamp(3rem, 7vw, 6rem);
+            line-height: .85;
+            letter-spacing: -.06em;
+        }
+
+        .result-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+
+            margin-top: 20px;
+        }
+
+        .result-box {
+            padding: 30px;
+
+            background: var(--cream);
+            border: 4px solid var(--black);
+
+            box-shadow: 8px 8px 0 var(--black);
+        }
+
+        .result-box h3 {
+            margin-top: 0;
+            padding-bottom: 10px;
+
+            border-bottom: 2px solid var(--black);
+
+            font-family: "Courier New", monospace;
+            font-size: .8rem;
+            text-transform: uppercase;
+        }
+
+        .result-box p {
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+
+        .restart {
+            margin-top: 30px;
+        }
+
+
+        /* =========================================================
+           PROMPT HISTORY
+           ========================================================= */
+
+        .prompt-section {
+            padding: 70px 7vw;
+
+            background: var(--black);
+            color: var(--cream);
+
+            border-top: 5px solid var(--black);
+        }
+
+        .prompt-inner {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .prompt-inner h2 {
+            margin: 0 0 10px;
+
+            color: var(--orange);
+
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            line-height: .9;
+            text-transform: uppercase;
+        }
+
+        .prompt-inner > p {
+            font-family: "Courier New", monospace;
+            font-size: .9rem;
+            line-height: 1.5;
+        }
+
+        .prompt-history {
+            width: 100%;
+            min-height: 250px;
+
+            padding: 20px;
+
+            resize: vertical;
+
+            background: #252525;
+            color: var(--cream);
+
+            border: 4px solid var(--cream);
+
+            font-family: "Courier New", monospace;
+            font-size: .85rem;
+            line-height: 1.65;
+        }
+
+
+        /* =========================================================
+           FOOTER
+           ========================================================= */
+
+        footer {
+            min-height: 110px;
+
+            padding: 25px 5vw;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+
+            background: var(--black);
+            color: var(--cream);
+
+            border-top: 5px solid var(--orange);
+        }
+
+        footer nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        footer nav a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 50px;
+            height: 50px;
+
+            background: var(--orange);
+
+            border: 3px solid var(--cream);
+
+            transition:
+                transform .15s ease,
+                background .15s ease;
+        }
+
+        footer nav a:hover {
+            background: var(--yellow);
+            transform: rotate(-8deg) translateY(-5px);
+        }
+
+        footer nav img {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+        }
+
+        .footer-label {
+            font-family: "Courier New", monospace;
+            font-size: .75rem;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+        }
+
+
+        /* =========================================================
+           MOBILE
+           ========================================================= */
+
+        @media (max-width: 700px) {
+
+            header {
+                min-height: auto;
+                padding: 15px 5vw;
+
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            header nav {
+                width: 100%;
+                justify-content: center;
+            }
+
+            header nav a {
+                padding: 8px 10px;
+                font-size: .7rem;
+            }
+
+            .ai-hero {
+                padding: 55px 5vw 65px;
+            }
+
+            .ai-hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .ai-hero-description {
+                font-size: .85rem;
+            }
+
+            .quiz-wrapper {
+                padding: 50px 5vw;
+            }
+
+            .quiz-card {
+                box-shadow: 8px 8px 0 var(--black);
+            }
+
+            .quiz-card h2 {
+                font-size: 2rem;
+            }
+
+            .answer {
+                font-size: .8rem;
+            }
+
+            .scribble {
+                display: none;
+            }
+
+            .quiz-controls {
+                flex-direction: column-reverse;
+                align-items: stretch;
+            }
+
+            .quiz-button {
+                width: 100%;
+            }
+
+            .result-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .results {
+                padding: 50px 5vw;
+            }
+
+            .results-header {
+                padding: 30px;
+            }
+
+            footer {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
+
+
 <body>
-    <ul>
-        <h1>Aishwarya Paryani</h1>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="activities.html">Activities</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="genai.html">Gen Ai</a></li>
-    </ul>
+
+    <!-- =========================================================
+         HEADER
+         ========================================================= -->
+
+    <header>
+
+        <a href="../index.html">HOME</a>
+
+        <nav>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="activities.html">Activities</a>
+            <a href="ai.html">AI</a>
+        </nav>
+
+    </header>
 
 
-    <h1>This page was made using AI!!! Hope you have fun!</h1>
+    <!-- =========================================================
+         MAIN
+         ========================================================= -->
+
+    <main>
+
+        <!-- HERO -->
+
+        <section class="ai-hero">
+
+            <div class="ai-kicker">
+                ✦ AI GENERATED EXPERIENCE ✦
+            </div>
+
+            <h1>
+                What Kind of
+                <span>Problem Solver</span>
+                Are You?
+            </h1>
+
+            <p class="ai-hero-description">
+                8 questions. No wrong answers.
+                Discover how you approach problems,
+                what you value in your career,
+                and the people you do your best work with.
+            </p>
+
+        </section>
 
 
-    <h3>Prompt History</h3>
-    <p>Check Back Soon!</p>
+        <!-- PROGRESS -->
 
-    <ul>
-        <li><a href="https://www.instagram.com/aishwarya_pa.ni/">Instagram</a></li>
-        <li><a href="https://github.com/RiverWhite00189">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/aishwarya-paryani/">LinkedIn</a></li>
-    </ul>
-    
+        <section class="quiz-progress">
+
+            <div class="progress-top">
+                <span id="progress-text">Question 1 of 8</span>
+                <span id="progress-percent">12%</span>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+
+        </section>
+
+
+        <!-- QUIZ -->
+
+        <section class="quiz-wrapper">
+
+            <div class="scribble one">
+                DIFFERENT<br>
+                MINDS.<br>
+                BETTER<br>
+                SOLUTIONS. →
+            </div>
+
+            <div class="scribble two">
+                progress<br>
+                &gt; perfection
+            </div>
+
+
+            <div class="quiz-card">
+
+                <div class="question-number" id="question-number">
+                    QUESTION 01
+                </div>
+
+                <h2 id="question-text">
+                    When you face a complex problem, what do you usually do first?
+                </h2>
+
+                <div class="answers" id="answers"></div>
+
+                <div class="quiz-controls">
+
+                    <button
+                        class="quiz-button back"
+                        id="back-button"
+                        onclick="previousQuestion()"
+                        disabled>
+                        ← Back
+                    </button>
+
+                    <button
+                        class="quiz-button"
+                        id="next-button"
+                        onclick="nextQuestion()"
+                        disabled>
+                        Next →
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RESULTS -->
+
+        <section class="results" id="results">
+
+            <div class="results-header">
+
+                <p>Your problem-solving archetype:</p>
+
+                <h2 id="result-title">
+                    THE STRATEGIST
+                </h2>
+
+                <p id="result-description">
+                    You like understanding the system before changing it.
+                </p>
+
+            </div>
+
+
+            <div class="result-grid">
+
+                <div class="result-box">
+
+                    <h3>Your Approach</h3>
+
+                    <p id="approach-result"></p>
+
+                </div>
+
+
+                <div class="result-box">
+
+                    <h3>What You Value</h3>
+
+                    <p id="values-result"></p>
+
+                </div>
+
+
+                <div class="result-box">
+
+                    <h3>Your Ideal Teammates</h3>
+
+                    <p id="people-result"></p>
+
+                </div>
+
+
+                <div class="result-box">
+
+                    <h3>Work Environment</h3>
+
+                    <p id="environment-result"></p>
+
+                </div>
+
+            </div>
+
+
+            <button
+                class="quiz-button restart"
+                onclick="restartQuiz()">
+
+                ↻ Take It Again
+
+            </button>
+
+        </section>
+
+
+        <!-- =====================================================
+             PROMPT HISTORY
+             ===================================================== -->
+
+        <section class="prompt-section">
+
+            <div class="prompt-inner">
+
+                <h2>Prompt History</h2>
+
+                <p>
+                    This page was developed through iterative AI
+                    prompting. The conversation used to create it
+                    is shown below.
+                </p>
+
+                <textarea
+                    class="prompt-history"
+                    readonly>Prompt 1:
+I need u to make a page for a website I am working on. It has several required pages, and you will be making this one:
+
+AI-generated Page (genai.thml)
+Use an AI tool (e.g. ChatGPT) to create one additional page:
+
+Topic: (almost) anything but should be professional and relevant.
+Does not change styles with the others.
+Contains a textbox at the bottom that shows the prompt/chat history you used.
+
+I would like you to make an interactive personality quiz with 8 questions that will tell the user what kind of problem solver they are, and what they value most in their career & who they are working with.
+
+I would like this to have a textile-like neo-brutalist look. I really want something maximalist and bold. I'm thinking warm colors and oranges; keep all styling within this sheet.
+
+
+Prompt 2:
+remove the style switcher and style sheet rel. this page has its entirely own styling unrelated to the rest. make sure the header and footers are styles too</textarea>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+
+    <footer>
+
+        <nav>
+
+            <a href="https://www.instagram.com/aishwarya_pa.ni/">
+                <img
+                    src="img/insta.png"
+                    alt="Instagram">
+            </a>
+
+            <a href="https://github.com/RiverWhite00189">
+                <img
+                    src="img/github.png"
+                    alt="GitHub">
+            </a>
+
+            <a href="https://www.linkedin.com/in/aishwarya-paryani/">
+                <img
+                    src="img/linkedin.png"
+                    alt="LinkedIn">
+            </a>
+
+        </nav>
+
+        <span class="footer-label">
+            Designed &amp; generated with AI ✦
+        </span>
+
+    </footer>
+
+
+    <!-- =========================================================
+         QUIZ JAVASCRIPT
+         ========================================================= -->
+
+    <script>
+
+        const questions = [
+
+            {
+                question:
+                    "When you face a complex problem, what do you usually do first?",
+
+                answers: [
+                    ["A", "Break it down and make a plan.", "S"],
+                    ["B", "Look at the big picture and find the core issue.", "I"],
+                    ["C", "Ask for input and hear different perspectives.", "C"],
+                    ["D", "Dive in and start experimenting.", "D"]
+                ]
+            },
+
+            {
+                question:
+                    "You are working on a project and something suddenly goes wrong. You...",
+
+                answers: [
+                    ["A", "Stop and figure out exactly what caused it.", "S"],
+                    ["B", "Get the team together and brainstorm.", "C"],
+                    ["C", "Try a completely different approach.", "I"],
+                    ["D", "Fix what you can and keep moving.", "D"]
+                ]
+            },
+
+            {
+                question:
+                    "What makes a project feel successful to you?",
+
+                answers: [
+                    ["A", "Everything works exactly as intended.", "S"],
+                    ["B", "Everyone contributed and feels proud of it.", "C"],
+                    ["C", "It created something genuinely new.", "I"],
+                    ["D", "We actually got something done.", "D"]
+                ]
+            },
+
+            {
+                question:
+                    "Which workday sounds the most satisfying?",
+
+                answers: [
+                    ["A", "A quiet day solving a complicated problem.", "S"],
+                    ["B", "A day full of meetings, collaboration, and ideas.", "C"],
+                    ["C", "A day experimenting with completely new concepts.", "I"],
+                    ["D", "A fast-paced day where you can see constant progress.", "D"]
+                ]
+            },
+
+            {
+                question:
+                    "What do you value most from the people you work with?",
+
+                answers: [
+                    ["A", "Competence and reliability.", "S"],
+                    ["B", "Communication and empathy.", "C"],
+                    ["C", "Creativity and curiosity.", "I"],
+                    ["D", "Energy and initiative.", "D"]
+                ]
+            },
+
+            {
+                question:
+                    "Your team has three possible solutions. You want to...",
+
+                answers: [
+                    ["A", "Compare the evidence and choose the strongest option.", "S"],
+                    ["B", "Discuss them until everyone understands the tradeoffs.", "C"],
+                    ["C", "Combine them into something unexpected.", "I"],
+                    ["D", "Pick one and test it immediately.", "D"]
+                ]
+            },
+
+            {
+                question:
+                    "Which career value matters most to you?",
+
+                answers: [
+                    ["A", "Mastery — becoming exceptionally good at something.", "S"],
+                    ["B", "People — building relationships and helping others succeed.", "C"],
+                    ["C", "Creativity — having freedom to create and explore.", "I"],
+                    ["D", "Impact — seeing tangible results from your work.", "D"]
+                ]
+            },
+
+            {
+                question:
+                    "What kind of teammate brings out your best work?",
+
+                answers: [
+                    ["A", "Someone thoughtful who sees details I might miss.", "S"],
+                    ["B", "Someone open-minded who loves talking through ideas.", "C"],
+                    ["C", "Someone imaginative who challenges the obvious answer.", "I"],
+                    ["D", "Someone ambitious who turns ideas into action.", "D"]
+                ]
+            }
+
+        ];
+
+
+        const results = {
+
+            S: {
+                title: "THE STRATEGIST",
+
+                description:
+                    "You like understanding the system before changing it.",
+
+                approach:
+                    "You naturally analyze, organize, and look for the structure underneath a problem. You prefer thoughtful decisions backed by evidence.",
+
+                values:
+                    "Mastery, clarity, competence, and solving difficult problems well.",
+
+                people:
+                    "Thoughtful, reliable teammates who notice details and bring strong reasoning.",
+
+                environment:
+                    "You tend to thrive when you have autonomy, challenging problems, and enough space to think."
+            },
+
+
+            C: {
+                title: "THE COLLABORATOR",
+
+                description:
+                    "You believe better solutions emerge when people think together.",
+
+                approach:
+                    "You naturally bring perspectives together and use communication to uncover better answers.",
+
+                values:
+                    "Connection, communication, empathy, and shared success.",
+
+                people:
+                    "Open-minded people who communicate well and enjoy building ideas together.",
+
+                environment:
+                    "You tend to thrive in people-centered environments where discussion, teamwork, and relationships matter."
+            },
+
+
+            I: {
+                title: "THE INNOVATOR",
+
+                description:
+                    "You see possibilities where other people see constraints.",
+
+                approach:
+                    "You question assumptions, experiment with ideas, and enjoy discovering unexpected solutions.",
+
+                values:
+                    "Creativity, curiosity, freedom, and meaningful innovation.",
+
+                people:
+                    "Imaginative teammates who challenge assumptions and are excited by new possibilities.",
+
+                environment:
+                    "You tend to thrive when you have creative freedom, variety, and permission to experiment."
+            },
+
+
+            D: {
+                title: "THE DOER",
+
+                description:
+                    "You learn by moving and turn ideas into action.",
+
+                approach:
+                    "You prefer momentum over endless planning. You test ideas, learn from what happens, and adjust quickly.",
+
+                values:
+                    "Impact, action, momentum, and visible results.",
+
+                people:
+                    "Energetic teammates who take initiative and turn conversations into action.",
+
+                environment:
+                    "You tend to thrive in dynamic environments where projects move quickly and your work has visible results."
+            }
+
+        };
+
+
+        let currentQuestion = 0;
+
+        let selectedAnswers =
+            Array(questions.length).fill(null);
+
+
+        /* =====================================================
+           DISPLAY QUESTION
+           ===================================================== */
+
+        function displayQuestion() {
+
+            const question =
+                questions[currentQuestion];
+
+            document.getElementById("question-number")
+                .textContent =
+                `QUESTION ${String(currentQuestion + 1).padStart(2, "0")}`;
+
+            document.getElementById("question-text")
+                .textContent =
+                question.question;
+
+
+            const answersContainer =
+                document.getElementById("answers");
+
+            answersContainer.innerHTML = "";
+
+
+            question.answers.forEach((answer, index) => {
+
+                const button =
+                    document.createElement("button");
+
+                button.className = "answer";
+
+
+                if (
+                    selectedAnswers[currentQuestion]
+                    === index
+                ) {
+                    button.classList.add("selected");
+                }
+
+
+                button.innerHTML = `
+                    <span class="answer-letter">
+                        ${answer[0]}
+                    </span>
+
+                    <span>
+                        ${answer[1]}
+                    </span>
+                `;
+
+
+                button.onclick =
+                    () => selectAnswer(index);
+
+
+                answersContainer.appendChild(button);
+
+            });
+
+
+            updateProgress();
+
+
+            document.getElementById("back-button")
+                .disabled =
+                currentQuestion === 0;
+
+
+            document.getElementById("next-button")
+                .disabled =
+                selectedAnswers[currentQuestion] === null;
+
+
+            document.getElementById("next-button")
+                .textContent =
+                currentQuestion === questions.length - 1
+                    ? "See My Result →"
+                    : "Next →";
+        }
+
+
+        /* =====================================================
+           SELECT ANSWER
+           ===================================================== */
+
+        function selectAnswer(index) {
+
+            selectedAnswers[currentQuestion] =
+                index;
+
+
+            document
+                .querySelectorAll(".answer")
+                .forEach((button, i) => {
+
+                    button.classList.toggle(
+                        "selected",
+                        i === index
+                    );
+
+                });
+
+
+            document.getElementById("next-button")
+                .disabled = false;
+        }
+
+
+        /* =====================================================
+           NEXT
+           ===================================================== */
+
+        function nextQuestion() {
+
+            if (
+                selectedAnswers[currentQuestion]
+                === null
+            ) {
+                return;
+            }
+
+
+            if (
+                currentQuestion
+                < questions.length - 1
+            ) {
+
+                currentQuestion++;
+
+                displayQuestion();
+
+            } else {
+
+                showResults();
+
+            }
+        }
+
+
+        /* =====================================================
+           BACK
+           ===================================================== */
+
+        function previousQuestion() {
+
+            if (currentQuestion > 0) {
+
+                currentQuestion--;
+
+                displayQuestion();
+
+            }
+        }
+
+
+        /* =====================================================
+           PROGRESS
+           ===================================================== */
+
+        function updateProgress() {
+
+            const percentage =
+                Math.round(
+                    ((currentQuestion + 1)
+                    / questions.length) * 100
+                );
+
+
+            document.getElementById("progress-fill")
+                .style.width =
+                `${percentage}%`;
+
+
+            document.getElementById("progress-text")
+                .textContent =
+                `Question ${currentQuestion + 1} of ${questions.length}`;
+
+
+            document.getElementById("progress-percent")
+                .textContent =
+                `${percentage}%`;
+        }
+
+
+        /* =====================================================
+           SHOW RESULTS
+           ===================================================== */
+
+        function showResults() {
+
+            const scores = {
+                S: 0,
+                C: 0,
+                I: 0,
+                D: 0
+            };
+
+
+            selectedAnswers.forEach(
+                (answerIndex, questionIndex) => {
+
+                    const type =
+                        questions[questionIndex]
+                            .answers[answerIndex][2];
+
+                    scores[type]++;
+
+                }
+            );
+
+
+            const winningType =
+                Object.keys(scores).reduce(
+                    (a, b) =>
+                        scores[a] >= scores[b]
+                            ? a
+                            : b
+                );
+
+
+            const result =
+                results[winningType];
+
+
+            document.getElementById("result-title")
+                .textContent =
+                result.title;
+
+
+            document.getElementById("result-description")
+                .textContent =
+                result.description;
+
+
+            document.getElementById("approach-result")
+                .textContent =
+                result.approach;
+
+
+            document.getElementById("values-result")
+                .textContent =
+                result.values;
+
+
+            document.getElementById("people-result")
+                .textContent =
+                result.people;
+
+
+            document.getElementById("environment-result")
+                .textContent =
+                result.environment;
+
+
+            document.querySelector(".quiz-wrapper")
+                .style.display = "none";
+
+
+            document.querySelector(".quiz-progress")
+                .style.display = "none";
+
+
+            document.getElementById("results")
+                .classList.add("visible");
+
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+
+
+        /* =====================================================
+           RESTART
+           ===================================================== */
+
+        function restartQuiz() {
+
+            currentQuestion = 0;
+
+            selectedAnswers =
+                Array(questions.length).fill(null);
+
+
+            document.querySelector(".quiz-wrapper")
+                .style.display = "block";
+
+
+            document.querySelector(".quiz-progress")
+                .style.display = "block";
+
+
+            document.getElementById("results")
+                .classList.remove("visible");
+
+
+            displayQuestion();
+
+
+            document.querySelector(".quiz-wrapper")
+                .scrollIntoView({
+                    behavior: "smooth"
+                });
+        }
+
+
+        /* =====================================================
+           START QUIZ
+           ===================================================== */
+
+        displayQuestion();
+
+    </script>
+
 </body>
 </html>

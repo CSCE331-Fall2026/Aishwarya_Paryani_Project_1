@@ -30,6 +30,7 @@
 
     <section class="aline">
         <a href="https://www.thealinemag.com/"><img src="img/aline-banner.png" alt="A-Line Magazine Banner"></a>
+    <div>
         <h2>A-Line Magazine - Editor</h2>
         <p>A-Line Magazine is Texas A&M University’s first student-led 
             editorial publication. We release online articles on a week-to-week 
@@ -50,6 +51,7 @@
              database & claims system!</p>
         <p>You can take a look at our past print issues on our website! You can find 
             my writing in our two most recent issues!</p>
+    </div>
         <div class="aline-mag">
             <a href="https://www.thealinemag.com/print-issues"><img src="img/muse.png" alt="MUSE magazine"></a>
             <a href="https://www.thealinemag.com/print-issues"><img src="img/foolish.png" alt="Fool!sh magazine"></a>
@@ -58,6 +60,7 @@
 
     <section class="awics">
         <h2>Aggie Women in Computer Science - Marketing Director</h2>
+        <div class="awics-text">
         <div class="awics-main">
             <a href="https://www.instagram.com/tamuawics/"><img src="img/awics.png" alt="AWICS logo"></a>
             <div>
@@ -74,8 +77,8 @@
         <p>Marketing is also responsible for coordinating the official merchandise distribution and 
             storefront for the Texas A&M Department of Computer Science. Every fall semester, we design 
             merchandise, typically clothing, featuring the Department of Computer Science’s official logo.</p>
+    </div>
     </section>
-
 
 <footer>
     <nav>
@@ -86,18 +89,26 @@
         <button id="switch-btn">Want a New look? Click Here!</button>
 </footer>
 
+
 <script>
     const cssLink = document.getElementById('css-link');
     const switchBtn = document.getElementById('switch-btn');
-    let usingAlt = false;
+    let usingAlt = localStorage.getItem('usingAltStyle') === 'true';
+
+    function applyStylesheet() {
+        if (usingAlt) {
+            cssLink.setAttribute('href', 'design_1.css');
+        } else {
+            cssLink.setAttribute('href', 'design_2.css');
+        }
+    }
+
+    applyStylesheet();
 
     switchBtn.addEventListener('click', function() {
-        if (usingAlt) {
-            cssLink.setAttribute('href', 'design_2.css');
-        } else {
-            cssLink.setAttribute('href', 'design_1.css');
-        }
         usingAlt = !usingAlt;
+        localStorage.setItem('usingAltStyle', usingAlt);
+        applyStylesheet();
     });
 </script>
 

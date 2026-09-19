@@ -81,15 +81,22 @@
 <script>
     const cssLink = document.getElementById('css-link');
     const switchBtn = document.getElementById('switch-btn');
-    let usingAlt = false;
+    let usingAlt = localStorage.getItem('usingAltStyle') === 'true';
+
+    function applyStylesheet() {
+        if (usingAlt) {
+            cssLink.setAttribute('href', 'design_1.css');
+        } else {
+            cssLink.setAttribute('href', 'design_2.css');
+        }
+    }
+
+    applyStylesheet();
 
     switchBtn.addEventListener('click', function() {
-        if (usingAlt) {
-            cssLink.setAttribute('href', 'design_2.css');
-        } else {
-            cssLink.setAttribute('href', 'design_1.css');
-        }
         usingAlt = !usingAlt;
+        localStorage.setItem('usingAltStyle', usingAlt);
+        applyStylesheet();
     });
 </script>
 

@@ -1,0 +1,280 @@
+:root {
+    --teal: #4d9b8f;
+    --cream: #f2ede2;
+    --text-color: #1a1a1a;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--cream);
+    color: var(--teal);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--teal);
+    color: var(--cream);
+    padding: 1rem 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+header nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+header nav a {
+  font-size: 1rem;
+}
+
+main > section:first-child h1 {
+  display: none;
+}
+
+.black-banner {
+  background: var(--cream);
+  align-self: center;
+  text-align: center;
+  justify-content: center;
+  color: var(--teal);
+  display: flex;
+  gap: 1rem;
+  padding: 1px clamp(0.5rem, 5vw, 3rem);
+}
+
+.black-banner p.star {
+  display: flex;
+  color: var(--teal);
+  align-self: center;
+  text-align: center;
+  font-size: 1rem;
+  justify-content: center;
+}
+
+.black-banner p {
+  display: flex;
+  font-size: 1.2rem;
+  max-width: 600px;
+  text-align: center;
+  justify-content: center;
+}
+
+.get-to-know-me {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  padding-top: 0.5rem;
+  background: var(--cream);
+  flex-wrap: wrap;
+}
+
+.get-to-know-me img, #headshot-img {
+  max-width: 400px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.get-to-know-me h2 {
+  color: var(--teal);
+  margin-top: 0;
+}
+
+.three {
+  background: var(--teal);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-bottom: 0px;
+}
+
+.three > a {
+  background: white;
+  border-radius: 6px;
+  padding: 1.5rem;
+  text-align: center;
+  display: block;
+}
+
+.three img {
+  width: 360px;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: #d9d9d9;
+  border-radius: 6px;
+  margin: 1rem 0;
+}
+
+.three h2 {
+  color: var(--teal);
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.three h3 {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--teal);
+  margin: 0px;
+}
+
+.job-three img {
+  flex: 0 0 260px;
+  max-width: 260px;
+  border-radius: 6px;
+  background: white;
+}
+
+.job-three {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+}
+
+.job-three div {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.job-three a {
+  text-align: center;
+}
+
+.job-three div h2 {
+  text-align: center;
+}
+
+.job-three,
+.proj,
+.aline,
+.awics {
+  background: var(--teal);
+  color: white;
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin: 1.5rem 2rem;
+}
+
+.job-three h2,
+.proj h2,
+.aline h2,
+.awics h2 {
+  margin-top: 0;
+}
+
+.awics h2 {
+  text-align: center;
+}
+
+.proj {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+
+.aline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  align-self: center;
+  justify-content: center;
+
+}
+
+.awics-text {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.awics-main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.aline img,
+.awics img {
+  flex: 0 0 360px;
+  max-width: 360px;
+  border-radius: 6px;
+  background: white;
+  align-self: center;
+}
+
+.aline div {
+  flex: 1 1 300px;
+}
+
+.aline-mag {
+  flex: 1 0 100%;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.aline-mag img,
+.proj img {
+  flex: 0 0 220px;
+  max-width: 220px;
+  border-radius: 6px;
+  background: white;
+}
+
+.proj-text {
+  flex: 1 1 300px;
+}
+
+footer {
+  background: var(--teal);
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+footer nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+footer img {
+  width: 24px;
+  height: 24px;
+}
+
+#switch-btn {
+  background: white;
+  color: var(--teal);
+  border: none;
+  padding: 0.75rem;
+  font-weight: bold;
+  cursor: pointer;
+}
