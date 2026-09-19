@@ -3,6 +3,6 @@ Aishwarya's Personal Website for CSCE 331 Project 1
 
 Landing Page Link: people.tamu.edu/~aishwarya
 
-HTML Only: people.tamu.edu/~aishwarya/index_no_css.html
+HTML Only: people.tamu.edu/~aishwarya/Aishwarya_Paryani_Project_1/index_no_css.html
 
 See the 'UI_Sketches' folder for website design sketches
