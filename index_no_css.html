@@ -20,44 +20,48 @@
         <h1>AISHWARYA</h1>
     </section>
 
-    <section>
-        <p>✦✦✦ Hi! I’m a Junior Computer Science Major at 
-            Texas A&M University! ✦✦✦</p>
+    <section class="black-banner">
+        <p class="star">✦✦✦</p>
+        <p>Hi! I’m a Junior Computer Science Major at 
+            Texas A&M University!</p>
+        <p class="star">✦✦✦</p>
     </section>
 
-    <section>
-        <img src="TODO">
-        <h2>Get to Know me!</h2>
-        <p>Aishwarya is a Craig and Galen Brown Engineering Honors
-             student studying computer science with a minor in Japanese.
-              As a junior she’s worked in robotics, full stack development,
-               & video game design. </p>
-        <p>She has a multidisciplinary array of interests including the technical,
-             business, and creative sides of the industry. She’s organizes the official
-              merchandise distribution and design for the department of computer 
-              science as well as leads marketing for A&M branch of the national Women
-               in Computer Science organization. Her leadership experience is best 
-               showcased through her role as editor of the A-Line Magazine as she leads 
-               a team of 15+ writers to publish a semester magazine print issue.</p>
+    <section class="get-to-know-me">
+        <img id="headshot-img" src="img/headshot.jpg" alt="photo of me">
+        <div>
+            <h2>Get to Know me!</h2>
+            <p>Aishwarya is a Craig and Galen Brown Engineering Honors
+                student studying computer science with a minor in Japanese.
+                As a junior she’s worked in robotics, full stack development,
+                & video game design. </p>
+            <p>She has a multidisciplinary array of interests including the technical,
+                business, and creative sides of the industry. She’s organizes the official
+                merchandise distribution and design for the department of computer 
+                science as well as leads marketing for A&M branch of the national Women
+                in Computer Science organization. Her leadership experience is best 
+                showcased through her role as editor of the A-Line Magazine as she leads 
+                a team of 15+ writers to publish a semester magazine print issue.</p>
+        </div>
         </section>
 
 
-    <section>
+    <section class="three">
         <a href="portfolio.html">
-            <img src="TODO" alt="portfolio preview">
-            <h2>PORTFOLIO</h2>
+            <h2>PORTFOLIO</h2>            
+            <img src="img/portfolio.jpeg" alt="portfolio preview">
             <h3>Explore Projects & Interest Areas</h3>
         </a>
 
         <a href="activities.html">
-            <img src="TODO" alt="activities preview">
             <h2>ACTIVITIES</h2>
+            <img src="img/activities.jpeg" alt="activities preview">
             <h3>Learn About What I Do & My Hobbies</h3>
         </a>
 
         <a href="ai.html">
-            <img src="TODO" alt="ai generated website preview">
             <h2>ARTIFICIAL<br>INTELLIGENCE</h2>
+            <img src="img/ai.jpeg" alt="ai generated website preview">
             <h3>Try Out an AI Generated Activity</h3>
         </a>
     </section>
@@ -65,11 +69,35 @@
 
 <footer>
     <nav>
-        <a href="https://www.instagram.com/aishwarya_pa.ni/">Instagram</a>
-        <a href="https://github.com/RiverWhite00189">GitHub</a>
-        <a href="https://www.linkedin.com/in/aishwarya-paryani/">LinkedIn</a>
+        <a href="https://www.instagram.com/aishwarya_pa.ni/"><img src="img/insta.png" alt="instagram"></a>
+        <a href="https://github.com/RiverWhite00189"><img src="img/github.png" alt="github"></a>
+        <a href="https://www.linkedin.com/in/aishwarya-paryani/"><img src="img/linkedin.png" alt="LinkedIn"></a>
     </nav>
-        <p>Want a New look? Click Here!</p>
+        <button id="switch-btn">Want a New look? Click Here!</button>
 </footer>
+
+
+<script>
+    const cssLink = document.getElementById('css-link');
+    const switchBtn = document.getElementById('switch-btn');
+    let usingAlt = localStorage.getItem('usingAltStyle') === 'true';
+
+    function applyStylesheet() {
+        if (usingAlt) {
+            cssLink.setAttribute('href', 'design_1.css');
+        } else {
+            cssLink.setAttribute('href', 'design_2.css');
+        }
+    }
+
+    applyStylesheet();
+
+    switchBtn.addEventListener('click', function() {
+        usingAlt = !usingAlt;
+        localStorage.setItem('usingAltStyle', usingAlt);
+        applyStylesheet();
+    });
+</script>
+
 </body>
 </html>
